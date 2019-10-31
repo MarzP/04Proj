@@ -3,6 +3,9 @@ const app = express();
 app.engine('html', require('ejs').renderFile);
 app.use(express.static("public"));
 
+var fakeData = require('faker');
+var randomName = fakeData.name.findName();
+console.log("Random name" + randomName);
 
 app.get("/", function(req, res) {
     res.render("index.html");
@@ -21,7 +24,7 @@ app.get("/doublebuffer", function(req, res) {
 });
 
 app.get("/biblio", function(req, res) {
-   res.render("biblio.html");
+    res.render("biblio.html");
 });
 
 // //server listener
